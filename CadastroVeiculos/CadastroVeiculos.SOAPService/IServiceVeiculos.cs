@@ -1,0 +1,18 @@
+﻿using CadastroVeiculos.Core.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CadastroVeiculos.SOAPService
+{
+    [ServiceContract]
+    public interface IServiceVeiculos
+    {
+        [OperationContract]
+        IEnumerable<Veiculo> ListarVeiculos(string placa = null);
+    }
+}

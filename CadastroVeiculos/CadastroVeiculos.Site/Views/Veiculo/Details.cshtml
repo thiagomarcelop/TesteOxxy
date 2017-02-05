@@ -1,0 +1,66 @@
+﻿@model CadastroVeiculos.Core.Model.Veiculo
+
+@{
+    ViewBag.Title = "Visualizar Dados";
+}
+
+<h2>Visualizar Dados</h2>
+
+<div>
+    <h4>Veiculo</h4>
+    <hr />
+
+    <div>
+        @foreach (var item in Model.VeiculoImagem)
+        {
+            <img src="~/uploads/@item.Arquivo" style="height:200px;width:350px;margin:10px;" />
+        }
+    </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Renavam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Renavam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeProprietario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeProprietario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bloqueado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bloqueado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-info" })
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" })
+</p>

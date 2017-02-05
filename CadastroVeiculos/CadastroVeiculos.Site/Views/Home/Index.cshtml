@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CadastroVeiculos.Core.Model.Veiculo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Veículos</h2>
+<h4>cadastrados no sistema</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bloqueado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Renavam)
+        </th>
+        <th>Ações</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="padding-left:30px;">
+                @Html.DisplayFor(modelItem => item.Bloqueado)
+            </td>
+            <td>
+                @*@Html.Raw(string.Format("{0}-{1}", item.Placa.Substring(0, 3), item.Placa.Substring(2, 4)))*@
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Renavam)
+            </td>
+            <td style="width:250px;">
+                @Html.ActionLink("Editar", "Edit", "Veiculo", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" }) 
+                @Html.ActionLink("Visualizar", "Details", "Veiculo", new { id = item.Id }, new { @class = "btn btn-sm btn-info" }) 
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Cadastrar Veículos", "Create", "Veiculo", null, new { @class = "btn btn-success" })
+</p>
